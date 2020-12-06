@@ -26,8 +26,8 @@ export default {
   },
 
   fonts: {
-    default: 'Roboto, sans serif',
-    header: 'Roboto, sans serif',
-    body: 'Open Sans, sans serif',
+    default: "'Roboto', sans serif",
+    header: "'Roboto', sans serif",
+    body: "'Roboto', sans serif",
   },
 };

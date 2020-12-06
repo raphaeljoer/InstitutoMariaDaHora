@@ -3,6 +3,7 @@ import { shade } from 'polished';
 import Image from 'next/image';
 
 export const Nav = styled.nav`
+  z-index: 2;
   top: 0;
 
   position: fixed;
