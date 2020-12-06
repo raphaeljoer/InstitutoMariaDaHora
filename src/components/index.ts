@@ -1,4 +1,4 @@
 import Navbar from './Navbar';
-import HeroSliderFullScreen from './HeroSliderFullScreen';
+import HeroFullScreen from './HeroFullScreen';
 
-export { Navbar, HeroSliderFullScreen };
+export { Navbar, HeroFullScreen };

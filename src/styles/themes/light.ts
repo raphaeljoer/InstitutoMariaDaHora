@@ -30,4 +30,18 @@ export default {
     header: "'Roboto', sans serif",
     body: "'Roboto', sans serif",
   },
+
+  device: {
+    mobile: {
+      small: `(min-width: 320px)`,
+      midle: `(min-width: 375px)`,
+      large: `(min-width: 425px)`,
+    },
+    tablet: `(min-width: 768px)`,
+    desktop: {
+      small: `(min-width: 1024px)`,
+      midle: `(min-width: 1440px)`,
+      large: `(min-width: 2560px)`,
+    },
+  },
 };

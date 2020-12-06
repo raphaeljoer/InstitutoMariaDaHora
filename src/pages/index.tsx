@@ -1,11 +1,12 @@
 import { Container } from '@/styles/pages/Home';
-import { Navbar, HeroSliderFullScreen } from '@/components';
+import { Navbar, HeroFullScreen } from '@/components';
 
 export default function Home() {
   return (
     <Container>
       <Navbar />
-      <HeroSliderFullScreen />
+      <HeroFullScreen />
+      <h1>continua ...</h1>
     </Container>
   );
 }

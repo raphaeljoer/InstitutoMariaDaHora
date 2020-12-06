@@ -40,21 +40,21 @@ export default createGlobalStyle`
     outline: 0;
   }
 
-  @media screen and (max-width: 700px) {
-    :root {
-      font-size: 50%;
-    }
-  }
-
-  @media screen and (min-width: 960px) {
-    :root {
-      font-size: 60%;
-    }
-  }
-
   @media screen and (min-width: 1440px) {
     :root {
-      font-size: 65%;
+      /* font-size: 60%; */
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    :root {
+      /* font-size: 55%; */
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    :root {
+      font-size: 60%;
     }
   }
 `;
