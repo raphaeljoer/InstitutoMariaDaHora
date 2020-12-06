@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
+  :root {
+    font-size: 62.5%;
+    transition: all ease-in-out 0.5s;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -11,8 +16,6 @@ export default createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
   }
 
   body {
@@ -24,66 +27,22 @@ export default createGlobalStyle`
 
     min-height: 100vh;
     scroll-behavior: smooth;
-    line-height: 1.5;
   }
 
-  body, input , button {
-    font-family: 'Poppins', sans-serif;
-    font-size:16px;
+  body, input, button, textarea {
+    font-family: Roboto, sans-serif;
+    font-size: 1.6rem;
   }
 
   button {
     cursor: pointer;
     border: none;
     outline: 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    :root {
+      font-size: 65%;
     }
-
-  /* Box sizing rules */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
   }
-
-  /* Remove default padding */
-  ul[class],
-  ol[class] {
-    padding: 0;
-  }
-
-  /* Remove default margin */
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  ul[class],
-  ol[class],
-  li,
-  figure,
-  figcaption,
-  blockquote,
-  dl,
-  dd {
-    margin: 0;
-  }
-
-  /* Remove list styles on ul, ol elements with a class attribute */
-  ul[class],
-  ol[class] {
-    list-style: none;
-  }
-
-  /* A elements that don't have a class get default styles */
-  a:not([class]) {
-    text-decoration-skip-ink: auto;
-  }
-
-  /* Inherit fonts for inputs and buttons */
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  };
+`;
