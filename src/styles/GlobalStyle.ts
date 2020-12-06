@@ -19,8 +19,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #fff;
-    color: #554d89;
+    color: ${(props) => props.theme.colors.primary.dark};
+    background: ${(props) => props.theme.backgrounds.primary.light};
 
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeSpeed;
@@ -30,7 +30,7 @@ export default createGlobalStyle`
   }
 
   body, input, button, textarea {
-    font-family: Roboto, sans-serif;
+    font-family: ${(props) => props.theme.fonts.default};
     font-size: 1.6rem;
   }
 
