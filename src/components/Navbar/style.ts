@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
+
 import { shade } from 'polished';
-import Image from 'next/image';
 
 export const Nav = styled.nav`
   z-index: 2;
@@ -25,12 +25,20 @@ export const NavbarContainer = styled.div`
   align-items: center;
   padding: 0 2rem;
   width: 100%;
-  height: 8rem;
+  height: 6.4rem;
+
+  transition: 0.2s ease-in-out all;
+
+  @media ${(props) => props.theme.device.tablet} {
+    height: 8rem;
+  }
 `;
 
-export const Logo = styled(Image)`
-  width: auto;
-  height: 4rem;
+export const Logo = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const MenuContainer = styled.div`

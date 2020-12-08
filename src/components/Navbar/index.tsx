@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { FiMenu } from 'react-icons/fi';
+import Image from 'next/image';
+
 import {
   Logo,
   NavbarContainer,
@@ -16,7 +18,16 @@ const Navbar = () => {
   return (
     <Nav>
       <NavbarContainer>
-        <Logo src="/images/logo-imh-dark.png" quality={40} unsized />
+        <Logo>
+          <Image
+            src="/images/logo-imh-dark.png"
+            height={36}
+            width={138}
+            alt="Instituto Maria da Hora"
+            layout="fixed"
+            priority
+          />
+        </Logo>
         <Menu>
           <MenuContainer>
             <Link href="#about" passHref>

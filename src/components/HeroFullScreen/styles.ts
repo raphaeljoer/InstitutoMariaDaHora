@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
-export const Container = styled.div`
+export const Container = styled.section`
   position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @media ${({ theme }) => theme.device.desktop.small} {
+  @media ${({ theme }) => theme.device.tablet} {
     height: 100vh;
   }
 `;
@@ -24,7 +24,7 @@ export const SlideContainer = styled.div`
   width: 100%;
 `;
 
-export const Slide = styled.div`
+export const Slide = styled.article`
   display: grid;
 
   grid-template-columns: 1fr;
@@ -36,7 +36,23 @@ export const Slide = styled.div`
   height: 100%;
   width: 100%;
 
-  @media ${({ theme }) => theme.device.desktop.small} {
+  @media ${({ theme }) => theme.device.mobile.small} {
+    grid-template-columns: 1fr;
+    grid-template-rows: 6.4rem auto;
+    grid-template-areas:
+      '.'
+      'info';
+  }
+
+  @media ${({ theme }) => theme.device.mobile.midle} {
+    grid-template-columns: 1fr;
+    grid-template-rows: 47vh auto;
+    grid-template-areas:
+      'media'
+      'info';
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 100%;
     grid-template-areas: 'info .';
@@ -53,6 +69,12 @@ export const InfoContainer = styled.div`
   justify-content: flex-start;
 
   height: 100%;
+
+  background-color: ${({ theme }) => theme.backgrounds.primary.dark};
+
+  @media ${({ theme }) => theme.device.tablet} {
+    background-color: transparent;
+  }
 `;
 
 export const Info = styled.div`
@@ -64,12 +86,12 @@ export const Info = styled.div`
   align-items: flex-start;
   justify-content: center;
 
-  padding: 4.8rem;
+  padding: 4rem 2.4rem;
 
   width: 100%;
   height: 100%;
 
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(40px);
   border-radius: 0;
 
@@ -97,7 +119,7 @@ export const Info = styled.div`
 
     font-size: 1.6rem;
 
-    margin: 3.2rem 0 1.6rem 0;
+    margin-top: 3.2rem;
     padding: 2.8rem;
 
     border-radius: 5rem;
@@ -110,8 +132,8 @@ export const Info = styled.div`
 
   @media ${(props) => props.theme.device.mobile.midle} {
     h1 {
-      font-size: 4.8rem;
-      line-height: 4.8rem;
+      font-size: 4rem;
+      line-height: 4rem;
     }
 
     p {
@@ -121,14 +143,17 @@ export const Info = styled.div`
   }
 
   @media ${(props) => props.theme.device.tablet} {
+    width: 80%;
+    height: auto;
+    border-radius: 0 2.4rem 0 0;
     h1 {
-      font-size: 5.6rem;
-      line-height: 5.6rem;
+      font-size: 4.8rem;
+      line-height: 4.8rem;
     }
 
     p {
-      font-size: 2.4rem;
-      line-height: 3.2rem;
+      font-size: 2.1rem;
+      line-height: 3rem;
     }
   }
 
@@ -156,6 +181,8 @@ export const Info = styled.div`
 export const MediaContainer = styled.div`
   grid-area: media;
   position: relative;
+
+  z-index: 1;
 `;
 
 export const Media = styled(Image)`
@@ -172,7 +199,7 @@ export const Media = styled(Image)`
   object-fit: cover;
 `;
 
-export const BackgroundMedia = styled(Image)`
+export const BackgroundContainer = styled.div`
   position: absolute;
   z-index: -1;
 
@@ -184,5 +211,10 @@ export const BackgroundMedia = styled(Image)`
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
+  display: none;
+  background-color: ${({ theme }) => theme.backgrounds.primary.dark};
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: flex;
+  }
 `;

@@ -4,7 +4,6 @@ export default createGlobalStyle`
 
   :root {
     font-size: 62.5%;
-    transition: all ease-in-out 0.5s;
   }
 
   * {

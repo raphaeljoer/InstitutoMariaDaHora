@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import {
   Container,
@@ -8,7 +9,7 @@ import {
   MediaContainer,
   InfoContainer,
   Info,
-  BackgroundMedia,
+  BackgroundContainer,
 } from './styles';
 
 const HeroFullScreen = () => {
@@ -35,20 +36,26 @@ const HeroFullScreen = () => {
             </Info>
           </InfoContainer>
           <MediaContainer>
-            <Media
+            <Image
               key={slideContent.image}
-              quality={40}
               src={slideContent.image}
-              unsized
+              quality={50}
+              layout="fill"
+              priority
+              objectFit="cover"
             />
           </MediaContainer>
         </Slide>
-        <BackgroundMedia
-          key={slideContent.image}
-          src={slideContent.image}
-          quality={50}
-          unsized
-        />
+        <BackgroundContainer>
+          <Image
+            key={slideContent.image}
+            src={slideContent.image}
+            quality={30}
+            layout="fill"
+            priority
+            objectFit="cover"
+          />
+        </BackgroundContainer>
       </SlideContainer>
     </Container>
   );

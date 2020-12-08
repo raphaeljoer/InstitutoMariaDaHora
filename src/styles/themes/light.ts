@@ -35,7 +35,7 @@ export default {
     mobile: {
       small: `(min-width: 320px)`,
       midle: `(min-width: 375px)`,
-      large: `(min-width: 425px)`,
+      large: `(min-width: 414px)`,
     },
     tablet: `(min-width: 768px)`,
     desktop: {
