@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
-interface AboutProps {
+interface ContentSectionProps {
   invertPosition?: boolean;
   backgroundColor?: string;
   textColor?: string;
   isHero?: boolean;
 }
 
-export const Container = styled.div<AboutProps>`
+export const Container = styled.div<ContentSectionProps>`
   background-color: ${(props) => props.backgroundColor};
 `;
 
@@ -17,7 +17,7 @@ export const ContentContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Content = styled.div<AboutProps>`
+export const Content = styled.div<ContentSectionProps>`
   display: grid;
 
   grid-template-columns: repeat(12, 1fr);
@@ -50,7 +50,7 @@ export const Content = styled.div<AboutProps>`
   }
 `;
 
-export const Info = styled.div<AboutProps>`
+export const Info = styled.div<ContentSectionProps>`
   ${(props) =>
     props.invertPosition
       ? css`
@@ -151,7 +151,7 @@ export const Button = styled.a`
   }
 `;
 
-export const Media = styled.div<AboutProps>`
+export const Media = styled.div<ContentSectionProps>`
   ${(props) =>
     props.invertPosition
       ? css`
@@ -171,7 +171,7 @@ export const Media = styled.div<AboutProps>`
 
   height: max(32rem, min(70vw, 56rem));
 
-  background-color: black;
+  background-color: ${(props) => props.theme.color.blue.dark};
 
   @media ${(props) => props.theme.breakpoint.desktop.small} {
     ${(props) =>

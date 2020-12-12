@@ -25,6 +25,7 @@ const Hero = () => {
             layout="fill"
             alt="Instituto Maria da Hora"
             objectFit="cover"
+            quality={50}
             priority
           />
         </Media>

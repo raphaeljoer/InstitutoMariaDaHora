@@ -56,7 +56,7 @@ export default {
       xlarge: `(min-width: 1024px)`,
     },
     desktop: {
-      small: `(min-width: 1024px)`,
+      small: `(min-width: 960px)`,
       midle: `(min-width: 1440px)`,
       large: `(min-width: 2560px)`,
     },

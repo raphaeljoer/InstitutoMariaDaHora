@@ -1,4 +1,4 @@
-import { Navbar, Hero, About } from '@/components';
+import { Navbar, Hero, ContentSection } from '@/components';
 import { Container } from '@/styles/pages/Home';
 
 export default function Home() {
@@ -6,7 +6,7 @@ export default function Home() {
     <Container>
       <Navbar />
       <Hero />
-      <About
+      <ContentSection
         title="Promover o amparo e desenvolvimento social às crianças, adolescentes e famílias."
         imageURL="/images/content_default.jpg"
         buttons={[

@@ -17,7 +17,7 @@ interface Button {
   buttonLink?: string;
 }
 
-interface AboutProps {
+interface ContentSectionProps {
   title: string;
   description?: string;
   buttons?: Button[];
@@ -28,7 +28,7 @@ interface AboutProps {
   isHero?: boolean;
 }
 
-const About = ({
+const ContentSection = ({
   title = 'Promover o amparo e desenvolvimento social às crianças, adolescentes e famílias.',
   description,
   buttons,
@@ -37,7 +37,7 @@ const About = ({
   textColor = theme.color.text.body1,
   invertPosition,
   isHero,
-}: AboutProps) => {
+}: ContentSectionProps) => {
   return (
     <Container backgroundColor={backgroundColor}>
       <ContentContainer>
@@ -63,8 +63,9 @@ const About = ({
               key={imageURL}
               src={imageURL}
               layout="fill"
-              alt="Instituto Maria da Hora"
+              alt={title}
               objectFit="cover"
+              quality={50}
               priority
             />
           </Media>
@@ -74,4 +75,4 @@ const About = ({
   );
 };
 
-export default About;
+export default ContentSection;
