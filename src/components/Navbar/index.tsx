@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { FiMenu } from 'react-icons/fi';
+import { FiBarChart } from 'react-icons/fi';
 import Image from 'next/image';
 
 import {
   Logo,
   NavbarContainer,
-  Menu,
+  MenuLeft,
   Nav,
   MenuContainer,
   MenuItem,
@@ -20,15 +20,15 @@ const Navbar = () => {
       <NavbarContainer>
         <Logo>
           <Image
-            src="/images/logo-imh-dark.png"
-            height={36}
-            width={138}
+            src="/images/logo-light.png"
+            height={28}
+            width={52}
             alt="Instituto Maria da Hora"
             layout="fixed"
             priority
           />
         </Logo>
-        <Menu>
+        <MenuLeft>
           <MenuContainer>
             <Link href="#about" passHref>
               <MenuItem>Projetos</MenuItem>
@@ -42,7 +42,7 @@ const Navbar = () => {
               <MenuItem>Faça parte</MenuItem>
             </Link>
           </MenuContainer>
-        </Menu>
+        </MenuLeft>
         <MenuRight>
           <Link href="#about" passHref>
             <Button>
@@ -51,7 +51,7 @@ const Navbar = () => {
           </Link>
         </MenuRight>
         <MenuMobile>
-          <FiMenu color="#554d89" size="24" />
+          <FiBarChart />
         </MenuMobile>
       </NavbarContainer>
     </Nav>

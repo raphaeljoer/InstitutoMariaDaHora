@@ -18,8 +18,8 @@ export default createGlobalStyle`
   }
 
   body {
-    color: ${(props) => props.theme.colors.primary.dark};
-    background: ${(props) => props.theme.backgrounds.primary.light};
+    color: ${(props) => props.theme.color.text.body1};
+    background: ${(props) => props.theme.color.background.light1};
 
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeSpeed;
@@ -28,8 +28,12 @@ export default createGlobalStyle`
     scroll-behavior: smooth;
   }
 
+  h1,h2,h3,h4,h4,h6 {
+    font-family: ${(props) => props.theme.font.title};
+  }
+
   body, input, button, textarea {
-    font-family: ${(props) => props.theme.fonts.default};
+    font-family: ${(props) => props.theme.font.body};
     font-size: 1.6rem;
   }
 
@@ -39,21 +43,9 @@ export default createGlobalStyle`
     outline: 0;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${(props) => props.theme.breakpoint.desktop.midle} {
     :root {
-      /* font-size: 60%; */
-    }
-  }
-
-  @media screen and (max-width: 1000px) {
-    :root {
-      /* font-size: 55%; */
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    :root {
-      font-size: 60%;
+      font-size: 70.5%;
     }
   }
 `;
