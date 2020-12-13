@@ -12,20 +12,28 @@ import {
   Button,
 } from './styles';
 
-interface Button {
+interface ButtonProps {
   buttonText?: string;
   buttonLink?: string;
+}
+
+interface HeightMediaProps {
+  min?: string;
+  speed?: string;
+  max?: string;
 }
 
 interface ContentSectionProps {
   title: string;
   description?: string;
-  buttons?: Button[];
+  buttons?: ButtonProps[];
   imageURL?: string;
+  imageHeight?: HeightMediaProps;
   invertPosition?: boolean;
   backgroundColor?: string;
   textColor?: string;
   isHero?: boolean;
+  hideImageOnMobile?: boolean;
 }
 
 const ContentSection = ({
@@ -33,17 +41,19 @@ const ContentSection = ({
   description,
   buttons,
   imageURL = '/images/content_default.jpg',
+  imageHeight = { min: '32rem', speed: '70vw', max: '56rem' },
   backgroundColor = theme.color.background.light1,
   textColor = theme.color.text.body1,
   invertPosition,
   isHero,
+  hideImageOnMobile,
 }: ContentSectionProps) => {
   return (
     <Container backgroundColor={backgroundColor}>
       <ContentContainer>
         <Content isHero={isHero}>
           <Info invertPosition={invertPosition} textColor={textColor}>
-            <h2>{title}</h2>
+            {isHero ? <h1>{title}</h1> : <h2>{title}</h2>}
             {description && <p>{description}</p>}
 
             {buttons &&
@@ -58,7 +68,11 @@ const ContentSection = ({
                 </Link>
               ))}
           </Info>
-          <Media invertPosition={invertPosition}>
+          <Media
+            invertPosition={invertPosition}
+            imageHeight={imageHeight}
+            hideImageOnMobile={hideImageOnMobile}
+          >
             <Image
               key={imageURL}
               src={imageURL}

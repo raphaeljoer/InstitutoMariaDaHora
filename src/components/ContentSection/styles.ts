@@ -1,11 +1,17 @@
 import styled, { css } from 'styled-components';
-import { shade } from 'polished';
 
+interface HeightMediaProps {
+  min?: string;
+  speed?: string;
+  max?: string;
+}
 interface ContentSectionProps {
   invertPosition?: boolean;
   backgroundColor?: string;
   textColor?: string;
   isHero?: boolean;
+  imageHeight?: HeightMediaProps;
+  hideImageOnMobile?: boolean;
 }
 
 export const Container = styled.div<ContentSectionProps>`
@@ -68,17 +74,24 @@ export const Info = styled.div<ContentSectionProps>`
 
   padding-bottom: 3.2rem;
 
+  h1 {
+    font-size: clamp(3.2rem, 9vw, 5.6rem);
+    line-height: 120%;
+    font-weight: 800;
+    color: ${(props) => props.textColor};
+  }
+
   h2 {
     font-size: clamp(3rem, 9vw, 3.4rem);
     line-height: 120%;
-    font-weight: 600;
+    font-weight: 700;
     color: ${(props) => props.textColor};
   }
 
   p {
-    margin-top: 0.8rem;
+    margin-top: 4rem;
     line-height: 150%;
-    font-size: clamp(1.6rem, 1.6vw, 2.1rem);
+    font-size: clamp(1.6rem, 1vw, 1.8rem);
     color: ${(props) => props.textColor};
     max-width: 100%;
   }
@@ -151,7 +164,32 @@ export const Button = styled.a`
   }
 `;
 
+const height = css<ContentSectionProps>`
+  height: max(
+    ${(props) => props.imageHeight.min},
+    min(
+      ${(props) => props.imageHeight.speed},
+      ${(props) => props.imageHeight.max}
+    )
+  );
+`;
+
 export const Media = styled.div<ContentSectionProps>`
+  position: relative;
+
+  overflow: hidden;
+  border-radius: 5.6rem 0 5.6rem 0;
+  margin-bottom: 4rem;
+  background-color: ${(props) => props.theme.color.blue.dark};
+
+  ${height}
+
+  ${(props) =>
+    props.hideImageOnMobile &&
+    css`
+      display: none;
+    `}
+
   ${(props) =>
     props.invertPosition
       ? css`
@@ -163,17 +201,13 @@ export const Media = styled.div<ContentSectionProps>`
           grid-row: 2/-1;
         `}
 
-  position: relative;
-
-  overflow: hidden;
-
-  border-radius: 6rem 0 6rem 0;
-
-  height: max(32rem, min(70vw, 56rem));
-
-  background-color: ${(props) => props.theme.color.blue.dark};
-
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
+    ${(props) =>
+      props.hideImageOnMobile &&
+      css`
+        display: flex;
+      `}
+
     ${(props) =>
       props.invertPosition
         ? css`
@@ -184,7 +218,5 @@ export const Media = styled.div<ContentSectionProps>`
             grid-column: 7/-1;
             grid-row: 1/-1;
           `}
-
-    border-radius: 6rem 0 6rem 0;
   }
 `;
