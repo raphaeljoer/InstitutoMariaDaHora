@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { shade } from 'polished';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme.color.background.blue};
@@ -14,7 +13,7 @@ export const Content = styled.div`
   margin: 0 auto;
   max-width: 1280px;
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 2.4rem;
 
@@ -65,7 +64,7 @@ export const Info = styled.div`
     background-color: ${(props) => props.theme.color.yellow.default};
   }
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-column: 1/6;
 
     padding-left: 5.6rem;
@@ -90,7 +89,7 @@ export const Media = styled.div`
 
   background-color: black;
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     margin: calc(3.2rem + 6.4rem) 0 0 0;
     grid-column: 7/-1;
     margin-right: 5.6rem;

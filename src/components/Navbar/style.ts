@@ -32,7 +32,7 @@ export const NavbarContainer = styled.div`
 
   transition: 0.2s ease-in-out all;
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     padding: 0 5.6rem;
   }
 `;
@@ -55,7 +55,7 @@ export const MenuLeft = styled.div`
 export const MenuContainer = styled.div`
   display: none;
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     display: flex;
   }
 `;
@@ -84,7 +84,7 @@ export const MenuItem = styled.a`
 export const MenuRight = styled.div`
   display: none;
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     display: flex;
   }
 `;
@@ -149,7 +149,7 @@ export const MenuMobile = styled.button`
   width: ${totalWidth};
   height: 25%;
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     display: none;
   }
 `;

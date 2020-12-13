@@ -35,7 +35,7 @@ export const Content = styled.div<ContentSectionProps>`
           padding: 4rem 0;
         `}
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-gap: 2.4rem;
     margin: 0 5.6rem;
 
@@ -83,7 +83,7 @@ export const Info = styled.div<ContentSectionProps>`
     max-width: 100%;
   }
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     ${(props) =>
       props.invertPosition
         ? css`
@@ -173,7 +173,7 @@ export const Media = styled.div<ContentSectionProps>`
 
   background-color: ${(props) => props.theme.color.blue.dark};
 
-  @media ${(props) => props.theme.breakpoint.desktop.small} {
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
     ${(props) =>
       props.invertPosition
         ? css`
