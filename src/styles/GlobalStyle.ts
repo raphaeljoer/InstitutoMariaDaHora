@@ -41,6 +41,7 @@ export default createGlobalStyle`
     cursor: pointer;
     border: none;
     outline: 0;
+    background: none;
   }
 
   @media ${(props) => props.theme.breakpoint.desktop.midle} {

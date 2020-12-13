@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import {
-  FiBarChart,
   FiHome,
   FiUsers,
   FiAward,
@@ -28,18 +27,21 @@ import {
   MobileMenuItem,
   MobileSocialContainer,
   MobileSocialMenuItem,
+  TopRectangleIcon,
+  MidleRectangleIcon,
+  BottomRectangleIcon,
 } from './style';
 
 const Navbar = () => {
-  const [togleMobileMenu, setTogleMobileMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleTogleMobileMenu = useCallback(() => {
-    setTogleMobileMenu(!togleMobileMenu);
-  }, [togleMobileMenu]);
+    setIsOpen(!isOpen);
+  }, [isOpen]);
 
   return (
     <Nav>
-      <MobileNavbar isOpen={togleMobileMenu}>
+      <MobileNavbar isOpen={isOpen}>
         <MobileMenuContainer>
           <MobileMenuItem>
             <Link href="#" passHref>
@@ -139,7 +141,9 @@ const Navbar = () => {
           </Link>
         </MenuRight>
         <MenuMobile onClick={handleTogleMobileMenu}>
-          <FiBarChart />
+          <TopRectangleIcon isOpen={isOpen} />
+          <MidleRectangleIcon isOpen={isOpen} />
+          <BottomRectangleIcon isOpen={isOpen} />
         </MenuMobile>
       </NavbarContainer>
     </Nav>

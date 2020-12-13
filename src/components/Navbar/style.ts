@@ -126,20 +126,98 @@ export const Button = styled.div`
   }
 `;
 
-export const MenuMobile = styled.button`
-  cursor: pointer;
-  background: none;
+// Menu Mobile
 
-  svg {
-    width: 3rem;
-    height: auto;
-    transform: rotate(-90deg);
-    color: ${(props) => props.theme.color.shape.dark1};
-  }
+const totalWidth = '2.4rem';
+const height = '0.24rem';
+
+const backgroundColor = css`
+  background-color: ${(props) => props.theme.color.shape.dark1};
+`;
+
+const transition = css`
+  transition: transform 0.2s ease-in-out;
+`;
+
+export const MenuMobile = styled.button`
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: ${totalWidth};
+  height: 25%;
 
   @media ${(props) => props.theme.breakpoint.desktop.small} {
     display: none;
   }
+`;
+
+export const TopRectangleIcon = styled.span<MobileMenuProps>`
+  width: 50%;
+  height: ${height};
+
+  border-radius: 0.24rem;
+
+  transform-origin: center left;
+
+  ${transition}
+  ${backgroundColor}
+
+  ${(props) =>
+    props.isOpen
+      ? css`
+          transform: translate(0.4rem, -0.2rem) rotate(45deg);
+          border-radius: 0.24rem 0 0 0.24rem;
+        `
+      : css`
+          transform: translate(0, 0) rotate(0);
+        `}
+`;
+
+export const MidleRectangleIcon = styled.span<MobileMenuProps>`
+  width: ${totalWidth};
+  height: ${height};
+
+  border-radius: 0.24rem;
+
+  ${transition}
+  ${backgroundColor}
+
+  transform-origin: center center;
+
+  ${(props) =>
+    props.isOpen
+      ? css`
+          transform: rotate(-45deg);
+        `
+      : css`
+          transform: rotate(0);
+        `}
+`;
+
+export const BottomRectangleIcon = styled.span<MobileMenuProps>`
+  width: 50%;
+  height: ${height};
+
+  border-radius: 0.24rem;
+
+  transform-origin: center right;
+  transform: translateX(100%);
+
+  ${transition}
+  ${backgroundColor}
+
+  ${(props) =>
+    props.isOpen
+      ? css`
+          transform: translate(0.95rem, 0.2rem) rotate(45deg);
+          border-radius: 0 0.24rem 0.24rem 0;
+        `
+      : css`
+          transform: translate(100%, 0) rotate(0);
+        `}
 `;
 
 export const MobileNavbar = styled.div<MobileMenuProps>`
@@ -149,7 +227,7 @@ export const MobileNavbar = styled.div<MobileMenuProps>`
   left: 0;
 
   width: 100%;
-  height: 42.8rem;
+  height: auto;
 
   transform: translate(0, -100%);
   transition: all 0.2s ease-out;
@@ -207,10 +285,8 @@ export const MobileMenuItem = styled.li`
 `;
 
 export const MobileSocialContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 3.2rem;
-
+  display: flex;
+  justify-content: space-between;
   margin: 2.4rem;
 `;
 
