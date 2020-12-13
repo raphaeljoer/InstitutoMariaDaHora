@@ -49,4 +49,41 @@ export default createGlobalStyle`
       font-size: 70.5%;
     }
   }
+
+  @media screen and (min-width: 960px) and (max-width: 1135px) {
+    :root {
+      font-size: 53%;
+    }
+  }
+
+  @media screen and (min-width: 767px) and (max-width: 959px) {
+    :root {
+      font-size: 45%;
+    }
+  }
+
+  @media screen and (max-width: 324px) {
+    :root {
+      font-size: 60%;
+    }
+  }
+
+  @media screen and (max-width: 310px) {
+    :root {
+      font-size: 56%;
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    :root {
+      font-size: 55%;
+    }
+  }
+
+  @media screen and (max-width: 290px) {
+    :root {
+      font-size: 50%;
+    }
+  }
+
 `;

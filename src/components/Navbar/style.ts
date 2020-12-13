@@ -229,6 +229,7 @@ export const MobileNavbar = styled.div<MobileMenuProps>`
   width: 100%;
   height: auto;
 
+  opacity: 0;
   transform: translate(0, -100%);
   transition: all 0.2s ease-out;
 
@@ -236,6 +237,7 @@ export const MobileNavbar = styled.div<MobileMenuProps>`
     props.isOpen &&
     css`
       transform: translate(0, 0);
+      opacity: 1;
     `}
 
   border-radius: 0 0 3rem 3rem;
@@ -244,7 +246,7 @@ export const MobileNavbar = styled.div<MobileMenuProps>`
 `;
 
 export const MobileMenuContainer = styled.ul`
-  margin: calc(6.4rem + 4rem) 2.4rem 0 2.4rem;
+  margin: calc(6.4rem + 3.2rem) 2.4rem 0 2.4rem;
 `;
 
 export const MobileMenuItem = styled.li`
