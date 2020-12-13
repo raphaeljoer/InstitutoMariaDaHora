@@ -38,6 +38,7 @@ declare module 'styled-components' {
         light1: string;
         light2: string;
         light3: string;
+        lightMenuHover: string;
         dark1: string;
         dark2: string;
         blue: string;

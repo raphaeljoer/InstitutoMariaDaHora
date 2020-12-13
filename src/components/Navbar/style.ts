@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
+interface MobileMenuProps {
+  isOpen: boolean;
+}
+
 export const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -127,13 +131,105 @@ export const MenuMobile = styled.button`
   background: none;
 
   svg {
-    width: 2.4rem;
+    width: 3rem;
     height: auto;
     transform: rotate(-90deg);
-    color: ${(props) => props.theme.color.shape.light1};
+    color: ${(props) => props.theme.color.shape.dark1};
   }
 
   @media ${(props) => props.theme.breakpoint.desktop.small} {
     display: none;
+  }
+`;
+
+export const MobileNavbar = styled.div<MobileMenuProps>`
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 42.8rem;
+
+  transform: translate(0, -100%);
+  transition: all 0.2s ease-out;
+
+  ${(props) =>
+    props.isOpen &&
+    css`
+      transform: translate(0, 0);
+    `}
+
+  border-radius: 0 0 3rem 3rem;
+
+  background-color: ${(props) => props.theme.color.background.light1};
+`;
+
+export const MobileMenuContainer = styled.ul`
+  margin: calc(6.4rem + 4rem) 2.4rem 0 2.4rem;
+`;
+
+export const MobileMenuItem = styled.li`
+  list-style: none;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    height: 4rem;
+    width: 100%;
+
+    color: ${(props) => props.theme.color.text.title1};
+
+    border-radius: 0.8rem;
+    text-decoration: none;
+
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: ${(props) =>
+        props.theme.color.background.lightMenuHover};
+    }
+
+    margin-top: 0.8rem;
+
+    span {
+      font-size: 1.6rem;
+      font-weight: 400;
+
+      margin-left: 1.6rem;
+    }
+
+    svg {
+      margin-left: 1.6rem;
+    }
+  }
+`;
+
+export const MobileSocialContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3.2rem;
+
+  margin: 2.4rem;
+`;
+
+export const MobileSocialMenuItem = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: ${(props) => props.theme.color.text.title2};
+
+  width: 5rem;
+  height: 5rem;
+
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.color.background.lightMenuHover};
+
+  svg {
+    height: 2rem;
+    width: auto;
   }
 `;

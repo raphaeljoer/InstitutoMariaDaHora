@@ -32,6 +32,7 @@ export default {
       light1: '#EBF2F5',
       light2: '#D3E2E5',
       light3: '#F7F9FC',
+      lightMenuHover: '#D1EDF2',
       dark1: '#3A535F',
       dark2: '#43616F',
       blue: '#15C3D6',
