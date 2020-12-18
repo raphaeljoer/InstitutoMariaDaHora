@@ -38,6 +38,7 @@ export const NavbarContainer = styled.div`
 `;
 
 export const Logo = styled.div`
+  cursor: pointer;
   img {
     width: 100%;
     height: 100%;

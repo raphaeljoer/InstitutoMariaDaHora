@@ -44,7 +44,7 @@ const Navbar = () => {
       <MobileNavbar isOpen={isOpen}>
         <MobileMenuContainer>
           <MobileMenuItem>
-            <Link href="#" passHref>
+            <Link href="/about" passHref>
               <a>
                 <FiHome />
                 <span>O instituto</span>
@@ -108,19 +108,25 @@ const Navbar = () => {
         </MobileSocialContainer>
       </MobileNavbar>
       <NavbarContainer>
-        <Logo>
-          <Image
-            src="/images/logo-dark.png"
-            height={28}
-            width={52}
-            alt="Instituto Maria da Hora"
-            layout="fixed"
-            priority
-          />
-        </Logo>
+        <Link href="/" passHref>
+          <Logo>
+            <Image
+              src="/images/logo-dark.png"
+              height={28}
+              width={52}
+              alt="Instituto Maria da Hora"
+              layout="fixed"
+              priority
+            />
+          </Logo>
+        </Link>
         <MenuLeft>
           <MenuContainer>
-            <Link href="#" passHref>
+            <Link href="/about" passHref>
+              <MenuItem>O instituto</MenuItem>
+            </Link>
+
+            <Link href="/about" passHref>
               <MenuItem>Projetos</MenuItem>
             </Link>
 
