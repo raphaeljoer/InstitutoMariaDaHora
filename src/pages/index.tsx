@@ -1,4 +1,10 @@
-import { Navbar, Hero, ContentSection, ContentSlider } from '@/components';
+import {
+  Navbar,
+  Hero,
+  ContentSection,
+  ContentSlider,
+  ContentImpact,
+} from '@/components';
 import { Container } from '@/styles/pages/Home';
 
 export default function Home() {
@@ -23,6 +29,8 @@ export default function Home() {
       />
 
       <ContentSlider />
+
+      <ContentImpact />
     </Container>
   );
 }
