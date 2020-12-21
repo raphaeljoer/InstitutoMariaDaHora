@@ -1,8 +1,14 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Controller } from 'swiper';
+
+import 'swiper/swiper-bundle.min.css';
+
 import Image from 'next/image';
-import { FiArrowUpRight } from 'react-icons/fi';
+
+import { FiArrowUpRight, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 
 import {
   Container,
@@ -10,10 +16,10 @@ import {
   ContentContainer,
   Info,
   SliderContainer,
-  CardsCarousel,
-  CardContainer,
   Card,
 } from './styles';
+
+SwiperCore.use([Navigation, Pagination, Controller]);
 
 const ContentSlider = () => {
   const slideContent = [
@@ -35,25 +41,35 @@ const ContentSlider = () => {
       goal: '200 crianças e adolescentes',
       buttonLink: '#',
     },
+    {
+      imageUrl: '/images/main.jpg',
+      title: 'Projeto Acolhimento Institucional de Crianças e Adolescentes',
+      goal: '200 crianças e adolescentes',
+      buttonLink: '#',
+    },
+    {
+      imageUrl: '/images/main.jpg',
+      title: 'Projeto Acolhimento Institucional de Crianças e Adolescentes',
+      goal: '200 crianças e adolescentes',
+      buttonLink: '#',
+    },
+    {
+      imageUrl: '/images/main.jpg',
+      title: 'Projeto Acolhimento Institucional de Crianças e Adolescentes',
+      goal: '200 crianças e adolescentes',
+      buttonLink: '#',
+    },
   ];
 
-  const dragMove = useCallback((event) => {
-    if (event.movementX < 0) {
-      event.target.scrollBy(50, 0);
-    } else {
-      event.target.scrollBy(-50, 0);
-    }
+  const swiperRef = useRef(null);
+
+  const handleNext = useCallback(() => {
+    swiperRef.current.children[0].swiper.slideNext();
   }, []);
 
-  const dragStop = useCallback(() => {
-    document.removeEventListener('mousemove', dragMove);
-    document.removeEventListener('mouseup', dragStop);
-  }, [dragMove]);
-
-  const dragStart = useCallback(() => {
-    document.addEventListener('mousemove', dragMove);
-    document.addEventListener('mouseup', dragStop);
-  }, [dragMove, dragStop]);
+  const handlePrev = useCallback(() => {
+    swiperRef.current.children[0].swiper.slidePrev();
+  }, []);
 
   return (
     <Container>
@@ -61,12 +77,34 @@ const ContentSlider = () => {
         <Content>
           <Info>
             <h2>Projetos que impactam a vida de milhares de pessoas.</h2>
+            <div id="controls">
+              <button type="button" onClick={handlePrev}>
+                <FiArrowLeft />
+              </button>
+              <button type="button" onClick={handleNext}>
+                <FiArrowRight />
+              </button>
+            </div>
           </Info>
-          <SliderContainer>
-            <CardsCarousel id="CardsCarousel" onMouseDown={dragStart}>
+          <SliderContainer ref={swiperRef}>
+            <Swiper
+              spaceBetween={24}
+              slidesPerView={1}
+              loop
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+              breakpoints={{
+                600: {
+                  slidesPerView: 2,
+                },
+                768: {
+                  slidesPerView: 3,
+                },
+              }}
+            >
               {slideContent.map(({ imageUrl, title, goal }) => (
-                <CardContainer>
-                  <Card key={uuidv4()}>
+                <SwiperSlide key={uuidv4()}>
+                  <Card>
                     <div id="media">
                       <Image
                         src={imageUrl}
@@ -84,9 +122,9 @@ const ContentSlider = () => {
                       <FiArrowUpRight />
                     </button>
                   </Card>
-                </CardContainer>
+                </SwiperSlide>
               ))}
-            </CardsCarousel>
+            </Swiper>
           </SliderContainer>
         </Content>
       </ContentContainer>

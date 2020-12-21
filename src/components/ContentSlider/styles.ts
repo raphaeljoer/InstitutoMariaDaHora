@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
@@ -21,7 +21,7 @@ export const Content = styled.div`
 
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: auto auto;
 
     margin: 0 5.6rem;
     padding: 8rem 0;
@@ -32,11 +32,9 @@ export const Info = styled.div`
   grid-column: 1 / -1;
   grid-row: 1/2;
 
-  margin: 0 2.4rem;
+  /* margin: 0 2.4rem; */
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   h2 {
     font-size: clamp(3.2rem, 9vw, 3.6rem);
@@ -45,9 +43,45 @@ export const Info = styled.div`
     color: ${(props) => props.theme.color.text.body2};
   }
 
+  div#controls {
+    display: none;
+  }
+
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
-    grid-column: 1 / 5;
-    grid-row: 1/-1;
+    grid-column: 1 / -1;
+    grid-row: 1/2;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    h2 {
+      width: 40rem;
+    }
+
+    div#controls {
+      display: flex;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        background: ${(props) => props.theme.color.yellow.default};
+
+        svg {
+          width: 1.8rem;
+          height: 1.8rem;
+          color: ${(props) => props.theme.color.yellow.dark};
+        }
+
+        & + button {
+          margin-left: 1.6rem;
+        }
+      }
+    }
   }
 `;
 
@@ -56,70 +90,17 @@ export const SliderContainer = styled.div`
   grid-row: 2/-1;
 
   position: relative;
-  overflow: hidden;
+  margin: 0 2.4rem;
 
-  margin-left: 2.4rem;
-
-  /* &:before {
-    content: '';
-    width: 12rem;
-    height: 100%;
-    position: absolute;
-    background: linear-gradient(
-      to right,
-      rgba(21, 195, 214, 0),
-      rgba(21, 195, 214, 1)
-    );
-    right: 0;
-    top: 0;
-    z-index: 2;
-  } */
+  button.swiper-button-next {
+    display: flex;
+    position: relative !important;
+  }
 
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
-    grid-column: 5 / -1;
-    grid-row: 1/-1;
-  }
-`;
-
-export const CardsCarousel = styled.div`
-  display: flex;
-
-  position: relative;
-
-  margin: 4rem 0;
-  width: 100%;
-
-  overflow-x: auto;
-
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  touch-action: pan-x;
-
-  position: relative;
-  cursor: grab;
-
-  transition: all 0.4s ease-in-out;
-
-  &::-webkit-scrollbar {
-    display: none; //hide scrollbar
-  }
-
-  -ms-overflow-style: none; //hide scrollbar
-  scrollbar-width: none; //hide scrollbar
-`;
-
-export const CardContainer = styled.div`
-  scroll-snap-align: start;
-  padding-right: 2.4rem;
-  pointer-events: none;
-
-  &:first-child {
-    padding-left: 0;
-  }
-
-  &:last-child {
-    padding-right: 2.4rem;
+    grid-column: 1 / -1;
+    grid-row: 2/-1;
+    margin: 4rem 0;
   }
 `;
 
@@ -129,7 +110,7 @@ export const Card = styled.div`
   flex-shrink: 0;
   flex-grow: 0;
 
-  width: 27.2rem;
+  width: 100%;
   height: auto;
 
   position: relative;
@@ -141,7 +122,7 @@ export const Card = styled.div`
 
   div#media {
     position: relative;
-    height: 15.2rem;
+    height: 17.6rem;
   }
 
   h3 {
@@ -170,8 +151,8 @@ export const Card = styled.div`
 
   button {
     pointer-events: all;
-    height: 4rem;
-    width: 4rem;
+    height: 4.8rem;
+    width: 4.8rem;
     border-radius: 0.8rem 0 0.8rem 0;
     color: ${(props) => props.theme.color.yellow.dark};
     background-color: ${(props) => props.theme.color.yellow.default};
@@ -182,5 +163,10 @@ export const Card = styled.div`
     position: absolute;
     right: 0;
     bottom: 0;
+
+    > svg {
+      height: 1.8rem;
+      width: 1.8rem;
+    }
   }
 `;

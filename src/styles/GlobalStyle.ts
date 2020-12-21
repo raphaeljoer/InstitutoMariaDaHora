@@ -21,6 +21,8 @@ export default createGlobalStyle`
     color: ${(props) => props.theme.color.text.body1};
     background: ${(props) => props.theme.color.background.light1};
 
+    overflow-x: hidden;
+
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeSpeed;
 
