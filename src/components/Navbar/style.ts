@@ -13,6 +13,8 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: center;
 
+  backdrop-filter: blur(32px);
+
   width: 100%;
 
   z-index: 2;
