@@ -29,6 +29,7 @@
     "prettier"
   ],
   "rules": {
+    "react/no-unused-prop-types": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "react/require-default-props": "off",
     "react/no-danger": "off",

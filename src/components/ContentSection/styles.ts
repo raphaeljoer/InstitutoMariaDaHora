@@ -57,16 +57,8 @@ export const Content = styled.div<ContentSectionProps>`
 `;
 
 export const Info = styled.div<ContentSectionProps>`
-  ${(props) =>
-    props.invertPosition
-      ? css`
-          grid-column: 1/-1;
-          grid-row: 2/-1;
-        `
-      : css`
-          grid-column: 1/-1;
-          grid-row: 1/2;
-        `}
+  grid-column: 1/-1;
+  grid-row: 2/-1;
 
   display: flex;
   flex-direction: column;
@@ -175,6 +167,9 @@ const height = css<ContentSectionProps>`
 `;
 
 export const Media = styled.div<ContentSectionProps>`
+  grid-column: 1/-1;
+  grid-row: 1/2;
+
   position: relative;
 
   overflow: hidden;
@@ -190,16 +185,7 @@ export const Media = styled.div<ContentSectionProps>`
       display: none;
     `}
 
-  ${(props) =>
-    props.invertPosition
-      ? css`
-          grid-column: 1/-1;
-          grid-row: 1/2;
-        `
-      : css`
-          grid-column: 1/-1;
-          grid-row: 2/-1;
-        `}
+
 
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
     ${(props) =>
