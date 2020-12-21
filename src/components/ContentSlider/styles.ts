@@ -32,7 +32,7 @@ export const Info = styled.div`
   grid-column: 1 / -1;
   grid-row: 1/2;
 
-  /* margin: 0 2.4rem; */
+  margin: 0 2.4rem;
 
   display: flex;
 
@@ -53,6 +53,8 @@ export const Info = styled.div`
 
     align-items: flex-end;
     justify-content: space-between;
+
+    margin: 0 0rem;
 
     h2 {
       width: 40rem;
