@@ -34,7 +34,7 @@ export default createGlobalStyle`
     font-family: ${(props) => props.theme.font.title};
   }
 
-  body, input, button, textarea {
+  body, input, textarea {
     font-family: ${(props) => props.theme.font.body};
     font-size: 1.6rem;
   }
@@ -44,6 +44,8 @@ export default createGlobalStyle`
     border: none;
     outline: 0;
     background: none;
+    font-size: 1.6rem;
+    font-family: ${(props) => props.theme.font.title};
   }
 
   @media ${(props) => props.theme.breakpoint.desktop.midle} {

@@ -1,14 +1,13 @@
 import { useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Controller } from 'swiper';
-
-import 'swiper/swiper-bundle.min.css';
-
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { FiArrowUpRight, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Controller } from 'swiper';
 
 import {
   Container,
@@ -17,7 +16,9 @@ import {
   Info,
   SliderContainer,
   Card,
+  Button,
 } from './styles';
+import 'swiper/swiper-bundle.min.css';
 
 SwiperCore.use([Navigation, Pagination, Controller]);
 
@@ -126,6 +127,14 @@ const ContentSlider = () => {
               ))}
             </Swiper>
           </SliderContainer>
+          <Link key={uuidv4()} href="/about" passHref>
+            <Button>
+              <span>Conheça os projetos</span>
+              <div>
+                <FiArrowRight />
+              </div>
+            </Button>
+          </Link>
         </Content>
       </ContentContainer>
     </Container>

@@ -14,14 +14,14 @@ export const ContentContainer = styled.div`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto auto;
-  grid-gap: 3.2rem;
+  grid-template-rows: auto auto auto;
+  grid-gap: 4rem;
 
   padding: 4rem 0;
 
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
 
     margin: 0 5.6rem;
     padding: 8rem 0;
@@ -87,6 +87,62 @@ export const Info = styled.div`
   }
 `;
 
+export const Button = styled.a`
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: fit-content;
+  height: fit-content;
+
+  margin: 0 2.4rem;
+
+  & + a {
+    margin-top: 1.6rem;
+  }
+
+  border-radius: 1.2rem;
+  text-decoration: none;
+
+  background-color: ${(props) => props.theme.color.yellow.default};
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    margin: 1.2rem 1.6rem;
+
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    color: ${(props) => props.theme.color.yellow.dark};
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    height: 3.2rem;
+    width: 3.2rem;
+
+    margin: 1.2rem;
+    border-radius: 0.8rem;
+
+    color: ${(props) => props.theme.color.shape.light1};
+    background-color: ${(props) => props.theme.color.blue.default};
+  }
+
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
+    margin: 0;
+  }
+`;
+
 export const SliderContainer = styled.div`
   grid-column: 1/ -1;
   grid-row: 2/-1;
@@ -102,7 +158,7 @@ export const SliderContainer = styled.div`
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-column: 1 / -1;
     grid-row: 2/-1;
-    margin: 4rem 0;
+    margin: 0 0rem;
   }
 `;
 
