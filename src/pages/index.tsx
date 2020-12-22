@@ -5,6 +5,7 @@ import {
   ContentSlider,
   ContentImpact,
 } from '@/components';
+
 import { Container } from '@/styles/pages/Home';
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
             buttonLink: '/about',
           },
         ]}
+        hideImageOnMobile
       />
 
       <ContentSlider />

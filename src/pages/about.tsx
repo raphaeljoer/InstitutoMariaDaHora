@@ -29,7 +29,7 @@ const About = () => {
         description="Promover amparo e desenvolvimento social às crianças, adolescentes e família que vivem em situação de risco e vunerabilidade social para que estas sejam reinseridas num contexto social digno."
         imageURL="/images/missao.jpg"
         textColor={Theme.color.text.body1}
-        backgroundColor={Theme.color.background.light3}
+        backgroundColor={Theme.color.background.light1}
       />
 
       <ContentSection

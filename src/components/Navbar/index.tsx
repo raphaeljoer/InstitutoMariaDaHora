@@ -1,4 +1,5 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState, useEffect, useRef, useMemo } from 'react';
+
 import Link from 'next/link';
 import {
   FiHome,
@@ -33,14 +34,32 @@ import {
 } from './style';
 
 const Navbar = () => {
+  const navBarRef = useRef<HTMLElement>(null);
+
+  const [sticky, setSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleTogleMobileMenu = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
+  const stickyNavBar = useCallback((event) => {
+    const stickyLimit = navBarRef.current.offsetHeight;
+
+    if (window.pageYOffset > stickyLimit && event.deltaY < 0) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    navBarRef.current = document.getElementById('navbar');
+    window.addEventListener('wheel', stickyNavBar);
+  }, [stickyNavBar]);
+
   return (
-    <Nav>
+    <Nav id="navbar" sticky={sticky}>
       <MobileNavbar isOpen={isOpen}>
         <MobileMenuContainer>
           <MobileMenuItem>

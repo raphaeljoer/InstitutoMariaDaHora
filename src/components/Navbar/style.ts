@@ -5,9 +5,15 @@ interface MobileMenuProps {
   isOpen: boolean;
 }
 
-export const Nav = styled.nav`
-  position: fixed;
+interface NavBarProps {
+  sticky: boolean;
+}
+
+export const Nav = styled.nav<NavBarProps>`
+  position: absolute;
   top: 0;
+
+  transition: all ease-in-out 0.4s;
 
   display: flex;
   align-items: center;
@@ -18,6 +24,23 @@ export const Nav = styled.nav`
   width: 100%;
 
   z-index: 2;
+
+  ${(props) =>
+    props.sticky &&
+    css`
+      @keyframes navBarFixed {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      animation: navBarFixed 0.4s;
+      background: rgba(255, 255, 255, 0.4);
+      position: fixed;
+    `}
 `;
 
 export const NavbarContainer = styled.div`

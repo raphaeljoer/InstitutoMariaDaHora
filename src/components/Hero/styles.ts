@@ -1,14 +1,28 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: relative;
   background-color: ${(props) => props.theme.color.background.blue};
+
+  @media ${(props) => props.theme.breakpoint.tablet.midle} {
+    &::before {
+      content: '';
+      position: absolute;
+      border-radius: 3.2rem;
+      bottom: 0;
+      left: 50%;
+      width: 16rem;
+      height: 16rem;
+      transform: translate(-50%, 5%) rotate(45deg);
+      background-color: ${(props) => props.theme.color.background.blue};
+    }
+  }
 `;
 
 export const Content = styled.div`
   display: grid;
 
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1.2rem;
 
   margin: 0 auto;
   max-width: 1280px;
@@ -16,7 +30,6 @@ export const Content = styled.div`
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 2.4rem;
-
     padding-bottom: 8rem;
   }
 `;

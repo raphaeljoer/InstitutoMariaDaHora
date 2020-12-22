@@ -2,6 +2,8 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import {
   Container,
   Content,
@@ -58,7 +60,7 @@ const ContentImpact = ({
                 numberColor,
                 numberDescription,
               }: NumberDataProps) => (
-                <div>
+                <div key={uuidv4()}>
                   <h3 className="title">
                     <span style={{ color: numberColor }}>{number}</span>
                     <strong>{numberTitle}</strong>

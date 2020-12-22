@@ -27,6 +27,7 @@ export const Header = styled.div`
   h2 {
     font-size: 3.2rem;
     font-weight: 600;
+    text-align: center;
 
     span {
       font-weight: 900;

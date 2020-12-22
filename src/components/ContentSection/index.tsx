@@ -79,7 +79,6 @@ const ContentSection = ({
               layout="fill"
               alt={title}
               objectFit="cover"
-              quality={50}
               priority
             />
           </Media>

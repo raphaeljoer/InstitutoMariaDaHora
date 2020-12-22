@@ -56,13 +56,13 @@ export default createGlobalStyle`
 
   @media screen and (min-width: 960px) and (max-width: 1135px) {
     :root {
-      font-size: 53%;
+      font-size: 60%;
     }
   }
 
   @media screen and (min-width: 767px) and (max-width: 959px) {
     :root {
-      font-size: 45%;
+      font-size: 55%;
     }
   }
 
