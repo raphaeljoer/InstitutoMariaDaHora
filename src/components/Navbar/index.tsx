@@ -34,19 +34,17 @@ import {
 } from './style';
 
 const Navbar = () => {
-  const navBarRef = useRef<HTMLElement>(null);
+  const navBarHeightRef = useRef(0);
 
   const [sticky, setSticky] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleTogleMobileMenu = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [isOpen]);
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  }, [isMobileMenuOpen]);
 
   const stickyNavBar = useCallback((event) => {
-    const stickyLimit = navBarRef.current.offsetHeight;
-
-    if (window.pageYOffset > stickyLimit && event.deltaY < 0) {
+    if (window.pageYOffset > navBarHeightRef.current && event.deltaY < 0) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -54,13 +52,17 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    navBarRef.current = document.getElementById('navbar');
+    navBarHeightRef.current = document.getElementById('navbar').offsetHeight;
     window.addEventListener('wheel', stickyNavBar);
+
+    return () => {
+      window.removeEventListener('wheel', stickyNavBar);
+    };
   }, [stickyNavBar]);
 
   return (
     <Nav id="navbar" sticky={sticky}>
-      <MobileNavbar isOpen={isOpen}>
+      <MobileNavbar isOpen={isMobileMenuOpen}>
         <MobileMenuContainer>
           <MobileMenuItem>
             <Link href="/about" passHref>
@@ -166,9 +168,9 @@ const Navbar = () => {
           </Link>
         </MenuRight>
         <MenuMobile onClick={handleTogleMobileMenu}>
-          <TopRectangleIcon isOpen={isOpen} />
-          <MidleRectangleIcon isOpen={isOpen} />
-          <BottomRectangleIcon isOpen={isOpen} />
+          <TopRectangleIcon isOpen={isMobileMenuOpen} />
+          <MidleRectangleIcon isOpen={isMobileMenuOpen} />
+          <BottomRectangleIcon isOpen={isMobileMenuOpen} />
         </MenuMobile>
       </NavbarContainer>
     </Nav>

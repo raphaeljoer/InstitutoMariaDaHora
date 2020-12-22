@@ -37,7 +37,7 @@ export const Nav = styled.nav<NavBarProps>`
         }
       }
 
-      animation: navBarFixed 0.4s;
+      animation: navBarFixed ease-out 0.2s;
       background: rgba(255, 255, 255, 0.4);
       position: fixed;
     `}
