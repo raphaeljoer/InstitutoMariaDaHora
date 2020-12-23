@@ -4,6 +4,7 @@ import {
   ContentSection,
   ContentSlider,
   ContentImpact,
+  Footer,
 } from '@/components';
 
 import { Container } from '@/styles/pages/Home';
@@ -61,6 +62,7 @@ export default function Home() {
           },
         ]}
       />
+      <Footer />
     </Container>
   );
 }
