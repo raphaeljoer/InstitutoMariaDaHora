@@ -1,5 +1,5 @@
 import { Container } from '@/styles/pages/About';
-import { Navbar, ContentSection, ContentImpact } from '@/components';
+import { Navbar, ContentSection, ContentImpact, Footer } from '@/components';
 import Theme from '@/styles/themes/light';
 
 const About = () => {
@@ -111,6 +111,7 @@ const About = () => {
         ]}
         invertPosition
       />
+      <Footer />
     </Container>
   );
 };

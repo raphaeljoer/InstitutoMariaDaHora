@@ -73,7 +73,7 @@ const Navbar = () => {
             </Link>
           </MobileMenuItem>
           <MobileMenuItem>
-            <Link href="#" passHref>
+            <Link href="/projetos" passHref>
               <a>
                 <FiUsers />
                 <span>Projetos</span>
@@ -147,7 +147,7 @@ const Navbar = () => {
               <MenuItem>O instituto</MenuItem>
             </Link>
 
-            <Link href="/about" passHref>
+            <Link href="/projetos" passHref>
               <MenuItem>Projetos</MenuItem>
             </Link>
 
