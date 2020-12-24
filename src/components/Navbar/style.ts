@@ -19,8 +19,6 @@ export const Nav = styled.nav<NavBarProps>`
   align-items: center;
   justify-content: center;
 
-  backdrop-filter: blur(32px);
-
   width: 100%;
 
   z-index: 2;
@@ -38,6 +36,7 @@ export const Nav = styled.nav<NavBarProps>`
       }
 
       animation: navBarFixed ease-out 0.2s;
+      backdrop-filter: blur(32px);
       background: rgba(255, 255, 255, 0.4);
       position: fixed;
     `}

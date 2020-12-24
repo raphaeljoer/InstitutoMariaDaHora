@@ -1,11 +1,18 @@
 import { Container } from '@/styles/pages/About';
-import { Navbar, ContentSection, ContentImpact, Footer } from '@/components';
+import {
+  Navbar,
+  ContentSection,
+  ContentImpact,
+  ContentFullSection,
+  Footer,
+} from '@/components';
 import Theme from '@/styles/themes/light';
 
 const About = () => {
   return (
     <Container>
       <Navbar />
+
       <ContentSection
         title="O Instituto"
         description="Atuamos há 50 anos dentro de estratégia de rede, em periferias e favelas. Nossos projetos estão focados em inclusão e proteção social para crianças, adolescentes e idosos, sendo um ponto de apoio às pessoas vulneráveis."
@@ -13,31 +20,28 @@ const About = () => {
         imageHeight={{ min: '32rem', speed: '7vw', max: '56rem' }}
         isHero
       />
+
       <ContentSection
         title="Quem somos"
         description="O Instituto Maria da Hora é uma entidade de direito privado, sem fins lucrativos que desenvolve há 50 anos um trabalho de inclusão social sério e comprometido com a população do bairro Henrique Jorge e adjacências, assim como de outros bairros de toda Fortaleza e atuando também em outras cidades do estado do Ceará. É uma entidade que se preocupa com a promoção da assistência social as minorias que vivem em situação de risco e vulnerabilidade social, necessitados de amparo físico e emocional."
         imageURL="/images/quem_somos.jpg"
         imageHeight={{ min: '48rem', speed: '7vw', max: '56rem' }}
         textColor={Theme.color.text.body2}
-        backgroundColor={Theme.color.background.dark1}
+        backgroundColor={Theme.color.blue.dark}
         hideImageOnMobile
         invertPosition
       />
 
-      <ContentSection
+      <ContentFullSection
         title="Missão"
         description="Promover amparo e desenvolvimento social às crianças, adolescentes e família que vivem em situação de risco e vunerabilidade social para que estas sejam reinseridas num contexto social digno."
-        imageURL="/images/missao.jpg"
-        textColor={Theme.color.text.body1}
-        backgroundColor={Theme.color.background.light1}
+        imageUrl="/images/missao.jpg"
       />
 
-      <ContentSection
+      <ContentFullSection
         title="Visão"
         description="Ser um referencial de excelência na prestação de serviços de educação, assistência social, saúde, cultura, esporte e lazer para crianças, adolescentes e famílias, garantindo um desenvolvimento eficiente de inclusão social no estado do Ceará."
-        imageURL="/images/visao.jpg"
-        textColor={Theme.color.text.body1}
-        backgroundColor={Theme.color.background.light1}
+        imageUrl="/images/visao.jpg"
         invertPosition
       />
 
@@ -71,46 +75,29 @@ const About = () => {
         ]}
       />
 
-      <ContentSection
+      <ContentFullSection
         title="Uma história de amor, coragem e perseverança."
-        imageURL="/images/fundadora_maria_da_hora.jpg"
-        textColor={Theme.color.text.body1}
+        imageUrl="/images/fundadora_maria_da_hora.jpg"
+        button={{ text: 'Conheça nossa história', link: '#' }}
         backgroundColor={Theme.color.background.light2}
-        buttons={[
-          {
-            buttonText: 'Conheça nossa história',
-            buttonLink: '/nossa-historia',
-          },
-        ]}
         invertPosition
       />
 
-      <ContentSection
+      <ContentFullSection
         title="Governança, comitês e Equipe."
-        imageURL="/images/equipe.jpg"
-        textColor={Theme.color.text.body1}
+        imageUrl="/images/equipe.jpg"
+        button={{ text: 'Conheça nossa equipe', link: '#' }}
         backgroundColor={Theme.color.background.light2}
-        buttons={[
-          {
-            buttonText: 'Conheça nossa história',
-            buttonLink: '/equipe',
-          },
-        ]}
       />
 
-      <ContentSection
+      <ContentFullSection
         title="Projetos que transformam realidades."
-        imageURL="/images/projetos.jpg"
-        textColor={Theme.color.text.body1}
+        imageUrl="/images/projetos.jpg"
+        button={{ text: 'Conheça nossos projetos', link: '/projetos' }}
         backgroundColor={Theme.color.background.light2}
-        buttons={[
-          {
-            buttonText: 'Conheça nossa história',
-            buttonLink: '/nossa-historia',
-          },
-        ]}
         invertPosition
       />
+
       <Footer />
     </Container>
   );
