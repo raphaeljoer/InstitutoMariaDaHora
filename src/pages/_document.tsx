@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
+          <link rel="stylesheet" type="text/css" href="/styles/nprogress.css" />
         </Head>
         <body>
           <Main />
