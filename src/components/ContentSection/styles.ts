@@ -83,7 +83,7 @@ export const Info = styled.div<ContentSectionProps>`
   p {
     margin-top: 4rem;
     line-height: 150%;
-    font-size: clamp(1.6rem, 1vw, 1.8rem);
+    font-size: clamp(1.8rem, 1vw, 2.1rem);
     color: ${(props) => props.textColor};
     max-width: 100%;
   }
