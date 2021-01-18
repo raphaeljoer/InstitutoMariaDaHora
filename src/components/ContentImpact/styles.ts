@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface ContentImpactProps {
+  padding: string;
+  paddingMobile: string;
+}
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme.color.background.light3};
@@ -9,14 +14,28 @@ export const ContentContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<ContentImpactProps>`
   display: flex;
   flex-direction: column;
 
-  padding: 4rem 2.4rem;
+  ${(p) =>
+    p.paddingMobile
+      ? css`
+          padding: ${p.paddingMobile};
+        `
+      : css`
+          padding: 4rem 2.4rem;
+        `}
 
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
-    padding: 12rem 5.6rem;
+    ${(p) =>
+      p.padding
+        ? css`
+            padding: ${p.padding};
+          `
+        : css`
+            padding: 12rem 5.6rem;
+          `}
   }
 `;
 

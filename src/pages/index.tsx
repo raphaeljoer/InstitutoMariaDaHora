@@ -1,9 +1,9 @@
 import {
   Navbar,
   Hero,
-  ContentSection,
   ContentSlider,
-  ContentImpact,
+  ContentDataImpact,
+  Partners,
   Footer,
 } from '@/components';
 
@@ -13,55 +13,54 @@ export default function Home() {
   return (
     <Container>
       <Navbar />
-      <Hero />
-
-      <ContentSection
-        title="Promover o amparo e desenvolvimento social às crianças, adolescentes e famílias."
-        imageURL="/images/content_default.jpg"
-        buttons={[
-          {
-            buttonText: 'Conheça nossa história',
-            buttonLink: '/about',
-          },
-          {
-            buttonText: 'Conheça nossa fundadora',
-            buttonLink: '/about',
-          },
-        ]}
-        hideImageOnMobile
+      <Hero
+        imageUrl="/images/boy-hero.png"
+        title="Amar é um ato de coragem"
+        description="Uma missão em que você pode acreditar. Pessoas em que você pode confiar."
+        button={{ text: 'Seja um voluntário', link: '#' }}
       />
 
       <ContentSlider />
 
-      <ContentImpact
-        wedo="Um impacto direto na vida de"
-        times="2972"
-        things="pessoas."
-        imageUrl="/images/impact.png"
+      <ContentDataImpact
+        upTitle="Proposta de valor"
+        title="Transformamos a realidade de vidas em situação de vunerabilidade."
+        status="2972 vidas"
+        statusDescription="já foram impactadas com nossos projetos sociais."
+        ctaTitle="O que nos faz únicos?"
+        ctaDescription="Somos autênticos, simples, transparêntes e confiáveis, ajudando as pessoas a reencontrarem o caminho."
         numbers={[
           {
+            color: '#37C77F',
             number: '1200+',
-            numberColor: '#37c77f',
-            numberTitle: 'Crianças e adolescentes',
-            numberDescription:
-              'Estamos mudando o jogo para milhares de crianças e jovens',
+            title: 'Crianças e adolescentes',
+            description:
+              'Estamos mudando o jogo para milhares de crianças e jovens.',
           },
           {
+            color: '#FFD666',
             number: '700+',
-            numberColor: '#ffd666',
-            numberTitle: 'Idosos',
-            numberDescription:
+            title: 'Idosos',
+            description:
               'Levamos mais qualidade de vida para quem mais precisa.',
           },
           {
+            color: '#FF669D',
             number: '200+',
-            numberColor: '#ff669d',
-            numberTitle: 'Famílias',
-            numberDescription:
-              'Acompanhamos o centenas de famílias todos os dias.',
+            title: 'Famílias',
+            description: 'Acompanhamos centenas de famílias todos os dias.',
+          },
+          {
+            color: '#15C3D6',
+            number: '16',
+            title: 'Projetos simultâneos',
+            description: 'Impactamos realidades espalhadas por todo o estado.',
           },
         ]}
       />
+
+      <Partners />
+
       <Footer />
     </Container>
   );

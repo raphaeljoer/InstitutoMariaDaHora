@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { FiFacebook, FiInstagram, FiMail } from 'react-icons/fi';
 
 import {
   Container,
+  Scroll,
   Menu,
   MenuContainer,
   MenuContent,
@@ -17,6 +19,9 @@ import {
 const Footer = () => {
   return (
     <Container>
+      <Scroll>
+        <Image src="/images/scroll-footer.svg" alt="scroll" layout="fill" />
+      </Scroll>
       <Menu>
         <MenuContainer>
           <MenuContent>

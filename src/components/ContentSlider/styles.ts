@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  background-color: ${(props) => props.theme.color.background.blue};
+  background: linear-gradient(45deg, rgb(41, 182, 209), rgb(0, 199, 199));
 `;
 
 export const ContentContainer = styled.div`
@@ -17,14 +17,14 @@ export const Content = styled.div`
   grid-template-rows: auto auto auto;
   grid-gap: 4rem;
 
-  padding: 4rem 0;
+  padding: 7.2rem 0;
 
   @media ${(props) => props.theme.breakpoint.tablet.midle} {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto auto auto;
 
     margin: 0 5.6rem;
-    padding: 8rem 0;
+    padding: 9.6rem 0;
   }
 `;
 
@@ -168,7 +168,7 @@ export const Card = styled.div`
   flex-shrink: 0;
   flex-grow: 0;
 
-  width: 100%;
+  width: 32rem;
   height: auto;
 
   position: relative;

@@ -6,12 +6,20 @@ interface MobileMenuProps {
 }
 
 interface NavBarProps {
+  themeBackground: 'transparent' | 'opaque';
+  initialSticky: boolean;
   sticky: boolean;
 }
 
 export const Nav = styled.nav<NavBarProps>`
-  position: absolute;
-  top: 0;
+  z-index: 999;
+
+  ${(props) =>
+    props.initialSticky &&
+    css`
+      position: absolute;
+      top: 0;
+    `}
 
   transition: all ease-in-out 0.4s;
 
@@ -21,7 +29,16 @@ export const Nav = styled.nav<NavBarProps>`
 
   width: 100%;
 
-  z-index: 2;
+  ${(props) =>
+    props.themeBackground === 'transparent'
+      ? css`
+          background: transparent;
+        `
+      : css`
+          backdrop-filter: blur(32px);
+          box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.05);
+          background: rgba(255, 255, 255, 0.8);
+        `}
 
   ${(props) =>
     props.sticky &&
@@ -37,7 +54,8 @@ export const Nav = styled.nav<NavBarProps>`
 
       animation: navBarFixed ease-out 0.2s;
       backdrop-filter: blur(32px);
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.05);
       position: fixed;
     `}
 `;

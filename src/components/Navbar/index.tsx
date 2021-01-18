@@ -1,4 +1,6 @@
-import { useCallback, useState, useEffect, useRef, useMemo } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
+import { v4 as uuid } from 'uuid';
+import { IconBaseProps } from 'react-icons/lib';
 
 import Link from 'next/link';
 import {
@@ -33,11 +35,47 @@ import {
   BottomRectangleIcon,
 } from './style';
 
-const Navbar = () => {
-  const navBarHeightRef = useRef(0);
+interface IMenuProps {
+  label: string;
+  link: string;
+  icon: IconBaseProps;
+}
 
+interface INavbarConfig {
+  themeBackground?: 'transparent' | 'opaque';
+  initialSticky?: boolean;
+}
+
+const Navbar = ({
+  themeBackground = 'transparent',
+  initialSticky = true,
+}: INavbarConfig) => {
+  const navBarHeightRef = useRef(0);
   const [sticky, setSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const menuMain = [
+    {
+      label: 'O instituto',
+      link: '/about',
+      icon: FiHome,
+    },
+    {
+      label: 'Projetos',
+      link: '/projetos',
+      icon: FiUsers,
+    },
+    {
+      label: 'Transparência',
+      link: '/transparencia',
+      icon: FiAward,
+    },
+    {
+      label: 'Faça parte',
+      link: '/faca-parte',
+      icon: FiSmile,
+    },
+  ];
 
   const handleTogleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -61,50 +99,26 @@ const Navbar = () => {
   }, [stickyNavBar]);
 
   return (
-    <Nav id="navbar" sticky={sticky}>
+    <Nav
+      id="navbar"
+      sticky={sticky}
+      themeBackground={themeBackground}
+      initialSticky={initialSticky}
+    >
       <MobileNavbar isOpen={isMobileMenuOpen}>
         <MobileMenuContainer>
-          <MobileMenuItem>
-            <Link href="/about" passHref>
-              <a>
-                <FiHome />
-                <span>O instituto</span>
-              </a>
-            </Link>
-          </MobileMenuItem>
-          <MobileMenuItem>
-            <Link href="/projetos" passHref>
-              <a>
-                <FiUsers />
-                <span>Projetos</span>
-              </a>
-            </Link>
-          </MobileMenuItem>
-          <MobileMenuItem>
-            <Link href="#" passHref>
-              <a>
-                <FiAward />
-                <span>Transparência</span>
-              </a>
-            </Link>
-          </MobileMenuItem>
-          <MobileMenuItem>
-            <Link href="#" passHref>
-              <a>
-                <FiSmile />
-                <span>Faça parte</span>
-              </a>
-            </Link>
-          </MobileMenuItem>
-          <MobileMenuItem>
-            <Link href="#" passHref>
-              <a>
-                <FiMail />
-                <span>Contato</span>
-              </a>
-            </Link>
-          </MobileMenuItem>
+          {menuMain.map(({ icon: Icon, label, link }) => (
+            <MobileMenuItem key={uuid()}>
+              <Link href={link} passHref>
+                <a>
+                  {Icon && <Icon size={20} />}
+                  <span>{label}</span>
+                </a>
+              </Link>
+            </MobileMenuItem>
+          ))}
         </MobileMenuContainer>
+
         <MobileSocialContainer>
           <Link href="#" passHref>
             <MobileSocialMenuItem>
@@ -128,6 +142,7 @@ const Navbar = () => {
           </Link>
         </MobileSocialContainer>
       </MobileNavbar>
+
       <NavbarContainer>
         <Link href="/" passHref>
           <Logo>
@@ -141,32 +156,27 @@ const Navbar = () => {
             />
           </Logo>
         </Link>
-        <MenuLeft>
-          <MenuContainer>
-            <Link href="/about" passHref>
-              <MenuItem>O instituto</MenuItem>
-            </Link>
 
-            <Link href="/projetos" passHref>
-              <MenuItem>Projetos</MenuItem>
-            </Link>
+        {menuMain && (
+          <MenuLeft>
+            <MenuContainer>
+              {menuMain.map(({ label, link }) => (
+                <Link key={uuid()} href={link} passHref>
+                  <MenuItem>{label}</MenuItem>
+                </Link>
+              ))}
+            </MenuContainer>
+          </MenuLeft>
+        )}
 
-            <Link href="#" passHref>
-              <MenuItem>Transparencia</MenuItem>
-            </Link>
-
-            <Link href="#" passHref>
-              <MenuItem>Faça parte</MenuItem>
-            </Link>
-          </MenuContainer>
-        </MenuLeft>
         <MenuRight>
-          <Link href="#" passHref>
+          <Link href="/contato" passHref>
             <Button>
               <a>Contato</a>
             </Button>
           </Link>
         </MenuRight>
+
         <MenuMobile onClick={handleTogleMobileMenu}>
           <TopRectangleIcon isOpen={isMobileMenuOpen} />
           <MidleRectangleIcon isOpen={isMobileMenuOpen} />

@@ -1,35 +1,113 @@
-import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { Container, Content, Info, Media } from './styles';
+import { FiArrowRight } from 'react-icons/fi';
 
-const Hero = () => {
+import {
+  Container,
+  Content,
+  Info,
+  InfoContent,
+  Media,
+  Dots,
+  Shape,
+  ShapeBackground,
+  Scroll,
+  Button,
+} from './styles';
+
+interface Button {
+  text: string;
+  link: string;
+}
+interface IHeroProps {
+  title?: string;
+  description?: string;
+  button?: Button;
+  imageUrl?: string;
+}
+
+const Hero = ({
+  title = 'titulo',
+  description = 'descrição',
+  button = { text: 'Conheça', link: '#' },
+  imageUrl = '/images/boy-hero.png',
+}: IHeroProps) => {
   return (
     <Container>
       <Content>
         <Info>
-          <h1>Amar é um ato de coragem.</h1>
-          <p>
-            Uma missão em que você pode acreditar. Pessoas em que você pode
-            confiar.
-          </p>
-          <Link href="/about" passHref>
-            <a>Conheça</a>
-          </Link>
+          <InfoContent>
+            {title && <h1>{title}</h1>}
+            {description && (
+              <p>
+                Uma missão em que você pode acreditar. Pessoas em que você pode
+                confiar.
+              </p>
+            )}
+            {button && (
+              <Link href={button.link} passHref>
+                <Button>
+                  <span>{button.text}</span>
+                  <div>
+                    <FiArrowRight />
+                  </div>
+                </Button>
+              </Link>
+            )}
+          </InfoContent>
         </Info>
         <Media>
+          <Dots>
+            <Image
+              key="/images/dots.svg"
+              src="/images/dots.svg"
+              alt="dots shape"
+              layout="fill"
+              objectFit="cover"
+              priority
+            />
+          </Dots>
           <Image
-            key="/images/main.jpg"
-            src="/images/main.jpg"
-            layout="fill"
+            key={imageUrl}
+            src={imageUrl}
             alt="Instituto Maria da Hora"
+            layout="fill"
             objectFit="cover"
-            quality={50}
             priority
           />
         </Media>
       </Content>
+      <Shape>
+        <Image
+          key="/images/shape.svg"
+          src="/images/shape.svg"
+          alt="shape"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+      </Shape>
+      <Scroll>
+        <Image
+          key="/images/scroll.svg"
+          src="/images/scroll.svg"
+          alt="shape"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+      </Scroll>
+      <ShapeBackground>
+        <Image
+          key="/images/shape-background.svg"
+          src="/images/shape-background.svg"
+          alt="shape"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+      </ShapeBackground>
     </Container>
   );
 };

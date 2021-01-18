@@ -25,6 +25,8 @@ interface ContentImpactProps {
   times: string;
   things: string;
   imageUrl: string;
+  paddingMobile?: string;
+  padding?: string;
   numbers: NumberDataProps[];
 }
 
@@ -34,11 +36,13 @@ const ContentImpact = ({
   things = 'pessoas.',
   imageUrl = '/images/impact.png',
   numbers,
+  padding,
+  paddingMobile,
 }: ContentImpactProps) => {
   return (
     <Container>
       <ContentContainer>
-        <Content>
+        <Content paddingMobile={paddingMobile} padding={padding}>
           <Header>
             <h2>
               {wedo} <span>{times}</span> {things}

@@ -5,8 +5,7 @@ import GlobalStyle from '@/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import light from '../styles/themes/light';
 
-Router.events.on('routeChangeStart', (url) => {
-  console.log(`Loading: ${url}`);
+Router.events.on('routeChangeStart', () => {
   NProgress.start();
 });
 Router.events.on('routeChangeComplete', () => NProgress.done());

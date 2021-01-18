@@ -92,8 +92,6 @@ const ContentSlider = () => {
               spaceBetween={24}
               slidesPerView={1}
               loop
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
               breakpoints={{
                 600: {
                   slidesPerView: 2,

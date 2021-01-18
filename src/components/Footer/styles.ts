@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.footer`
+  position: relative;
   color: ${(props) => props.theme.color.text.body2};
+  background: #f0f5f6;
 `;
 
 export const Menu = styled.div`
-  background: ${(props) => props.theme.color.background.dark1};
+  padding: 2.4rem 0;
 `;
 
 export const MenuContainer = styled.div`
@@ -15,9 +17,10 @@ export const MenuContainer = styled.div`
 
 export const MenuContent = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   grid-column-gap: 2.4rem;
 
+  font-size: 1.4rem;
   margin: 0 2.4rem;
   padding-bottom: 4rem;
 
@@ -31,9 +34,10 @@ export const List = styled.ul`
 
   li {
     list-style: none;
+    color: ${(props) => props.theme.color.text.body1};
 
     a {
-      color: ${(props) => props.theme.color.text.body2};
+      color: ${(props) => props.theme.color.text.body1};
       text-decoration: none;
     }
 
@@ -44,7 +48,7 @@ export const List = styled.ul`
 
   li:first-child {
     h4 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 700;
     }
     margin-bottom: 2.4rem;
@@ -56,7 +60,8 @@ export const List = styled.ul`
 `;
 
 export const Info = styled.div`
-  background: ${(props) => props.theme.color.background.dark2};
+  color: ${(p) => p.theme.color.text.body1};
+  background: #ecf2f4;
 `;
 
 export const InfoContainer = styled.div`
@@ -107,4 +112,15 @@ export const SocialMedia = styled.div`
     margin: 0 5.6rem;
     justify-content: flex-end;
   }
+`;
+
+export const Scroll = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 14.5rem;
+  height: 3.7rem;
+
+  transform: translateX(-50%) translateY(-99%);
 `;

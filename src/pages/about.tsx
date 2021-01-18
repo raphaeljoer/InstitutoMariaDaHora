@@ -1,19 +1,65 @@
 import { Container } from '@/styles/pages/About';
 import {
   Navbar,
-  ContentSection,
-  ContentImpact,
-  ContentFullSection,
+  HeroContent,
+  ContentAbout,
+  Partners,
+  Gallery,
   Footer,
+  ContentDataImpact,
 } from '@/components';
-import Theme from '@/styles/themes/light';
 
 const About = () => {
   return (
     <Container>
-      <Navbar />
+      <Navbar initialSticky={false} themeBackground="opaque" />
 
-      <ContentSection
+      <HeroContent />
+
+      <ContentDataImpact
+        upTitle="Proposta de valor"
+        title="Transformamos a realidade de vidas em situação de vunerabilidade."
+        status="2972 vidas"
+        statusDescription="já foram impactadas com nossos projetos sociais."
+        ctaTitle="O que nos faz únicos?"
+        ctaDescription="Somos autênticos, simples, transparêntes e confiáveis, ajudando as pessoas a reencontrarem o caminho."
+        numbers={[
+          {
+            color: '#37C77F',
+            number: '1200+',
+            title: 'Crianças e adolescentes',
+            description:
+              'Estamos mudando o jogo para milhares de crianças e jovens.',
+          },
+          {
+            color: '#FFD666',
+            number: '700+',
+            title: 'Idosos',
+            description:
+              'Levamos mais qualidade de vida para quem mais precisa.',
+          },
+          {
+            color: '#FF669D',
+            number: '200+',
+            title: 'Famílias',
+            description: 'Acompanhamos centenas de famílias todos os dias.',
+          },
+          {
+            color: '#15C3D6',
+            number: '16',
+            title: 'Projetos simultâneos',
+            description: 'Impactamos realidades espalhadas por todo o estado.',
+          },
+        ]}
+      />
+
+      <ContentAbout />
+
+      <Gallery />
+
+      <Partners />
+
+      {/* <ContentSection
         title="O Instituto"
         description="Atuamos há 50 anos dentro de estratégia de rede, em periferias e favelas. Nossos projetos estão focados em inclusão e proteção social para crianças, adolescentes e idosos, sendo um ponto de apoio às pessoas vulneráveis."
         imageURL="/images/o_instituto.jpg"
@@ -22,81 +68,52 @@ const About = () => {
       />
 
       <ContentSection
-        title="Quem somos"
-        description="O Instituto Maria da Hora é uma entidade de direito privado, sem fins lucrativos que desenvolve há 50 anos um trabalho de inclusão social sério e comprometido com a população do bairro Henrique Jorge e adjacências, assim como de outros bairros de toda Fortaleza e atuando também em outras cidades do estado do Ceará. É uma entidade que se preocupa com a promoção da assistência social as minorias que vivem em situação de risco e vulnerabilidade social, necessitados de amparo físico e emocional."
-        imageURL="/images/quem_somos.jpg"
-        imageHeight={{ min: '48rem', speed: '7vw', max: '56rem' }}
-        textColor={Theme.color.text.body2}
-        backgroundColor={Theme.color.blue.dark}
-        hideImageOnMobile
+        title="Missão"
+        description="Promover amparo e desenvolvimento social às crianças, adolescentes e família que vivem em situação de risco e vunerabilidade social para que estas sejam reinseridas num contexto social digno.."
+        imageURL="/images/missao.jpg"
         invertPosition
       />
 
-      <ContentFullSection
-        title="Missão"
-        description="Promover amparo e desenvolvimento social às crianças, adolescentes e família que vivem em situação de risco e vunerabilidade social para que estas sejam reinseridas num contexto social digno."
-        imageUrl="/images/missao.jpg"
-      />
-
-      <ContentFullSection
+      <ContentSection
         title="Visão"
         description="Ser um referencial de excelência na prestação de serviços de educação, assistência social, saúde, cultura, esporte e lazer para crianças, adolescentes e famílias, garantindo um desenvolvimento eficiente de inclusão social no estado do Ceará."
-        imageUrl="/images/visao.jpg"
-        invertPosition
+        imageURL="/images/visao.jpg"
       />
 
-      <ContentImpact
-        wedo="Um impacto direto na vida de"
-        times="2972"
-        things="pessoas."
-        imageUrl="/images/impact_2.png"
-        numbers={[
+      <ContentSection
+        title="Uma história de amor, coragem e perseverança."
+        imageURL="/images/fundadora_maria_da_hora.jpg"
+        invertPosition
+        buttons={[
           {
-            number: '1200+',
-            numberColor: '#37c77f',
-            numberTitle: 'Crianças e adolescentes',
-            numberDescription:
-              'Estamos mudando o jogo para milhares de crianças e jovens',
-          },
-          {
-            number: '700+',
-            numberColor: '#ffd666',
-            numberTitle: 'Idosos',
-            numberDescription:
-              'Levamos mais qualidade de vida para quem mais precisa.',
-          },
-          {
-            number: '200+',
-            numberColor: '#ff669d',
-            numberTitle: 'Famílias',
-            numberDescription:
-              'Acompanhamos o centenas de famílias todos os dias.',
+            buttonText: 'Conheça nossa história',
+            buttonLink: '#',
           },
         ]}
       />
 
-      <ContentFullSection
-        title="Uma história de amor, coragem e perseverança."
-        imageUrl="/images/fundadora_maria_da_hora.jpg"
-        button={{ text: 'Conheça nossa história', link: '#' }}
-        backgroundColor={Theme.color.background.light2}
-        invertPosition
-      />
-
-      <ContentFullSection
+      <ContentSection
         title="Governança, comitês e Equipe."
-        imageUrl="/images/equipe.jpg"
-        button={{ text: 'Conheça nossa equipe', link: '#' }}
-        backgroundColor={Theme.color.background.light2}
+        imageURL="/images/equipe.jpg"
+        buttons={[
+          {
+            buttonText: 'Conheça nossa equipe',
+            buttonLink: '#',
+          },
+        ]}
       />
 
-      <ContentFullSection
+      <ContentSection
         title="Projetos que transformam realidades."
-        imageUrl="/images/projetos.jpg"
-        button={{ text: 'Conheça nossos projetos', link: '/projetos' }}
-        backgroundColor={Theme.color.background.light2}
+        imageURL="/images/projetos.jpg"
         invertPosition
-      />
+        buttons={[
+          {
+            buttonText: 'Conheça nossos projetos',
+            buttonLink: '/projetos',
+          },
+        ]}
+      /> */}
 
       <Footer />
     </Container>
